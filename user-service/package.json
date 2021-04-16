@@ -9,13 +9,21 @@
     "db:migrate:undo": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.32"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
     "@types/node": "^14.14.37",
+    "@types/passport": "^1.0.6",
+    "@types/passport-facebook": "^2.1.10",
     "module-alias": "^2.2.2",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.1.6",

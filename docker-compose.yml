@@ -9,8 +9,8 @@ services:
 
   users-service:
     build:
-      context: "."
-      dockerfile: "./user-service/Dockerfile"
+      context: "./user-service/"
+      dockerfile: "Dockerfile"
     depends_on:
       - user-service-db
     ports:

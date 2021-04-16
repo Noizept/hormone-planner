@@ -1,3 +1,7 @@
 import { initConnection } from "@src/database/connection";
+import startServer from "./server";
 
-initConnection().then(()=>console.log('entrou'))
+initConnection().then(() => {
+  console.log("Database Connected");
+  startServer();
+});
