@@ -1,11 +1,11 @@
-import React from "react";
-import { Auth0Provider } from "@auth0/auth0-react";
-import AuthButton from "./components/AuthButton";
-import Profile from "./components/Profile";
-import ToggleColor from "./components/ToggleColor";
+import React from 'react';
+import { Auth0Provider } from '@auth0/auth0-react';
+import AuthButton from './components/AuthButton';
+import Profile from './components/Profile';
+import ToggleColor from './components/ToggleColor';
 
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./theme";
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from './theme';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       useRefreshTokens={true}
       cacheLocation="localstorage"
     >
-      {"React sim"}
+      {'React sim'}
       <ChakraProvider theme={theme}>
         <ToggleColor></ToggleColor>
         <AuthButton />
