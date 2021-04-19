@@ -7,13 +7,23 @@ services:
     volumes:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
 
+  react-app:
+    build:
+      context: "./react-app/"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - users-service
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react-app:/opt/app
+
   users-service:
     build:
       context: "./user-service/"
       dockerfile: "Dockerfile"
     depends_on:
       - user-service-db
-      - auth-service-db
     ports:
       - "7101:7101"
     volumes:
