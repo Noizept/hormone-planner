@@ -13,6 +13,7 @@ services:
       dockerfile: "Dockerfile"
     depends_on:
       - user-service-db
+      - auth-service-db
     ports:
       - "7101:7101"
     volumes:

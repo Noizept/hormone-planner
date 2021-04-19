@@ -1,4 +1,4 @@
-import { initConnection } from "@src/database/connection";
+import { initConnection } from "./database/connection";
 import startServer from "./server";
 
 initConnection().then(() => {

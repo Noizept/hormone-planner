@@ -5,9 +5,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "paths": {
-      "@src/*": ["./src/*"]
-    },
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
