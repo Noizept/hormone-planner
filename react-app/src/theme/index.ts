@@ -10,7 +10,6 @@ const theme = extendTheme({
   },
   config: {
     initialColorMode: 'dark',
-    useSystemColorMode: true,
   },
 });
 export default theme;

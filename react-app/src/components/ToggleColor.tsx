@@ -1,12 +1,18 @@
-import React from "react";
-import { Button, useColorMode } from "@chakra-ui/react";
+import React from 'react';
+import { IconButton, useColorMode } from '@chakra-ui/react';
+import { FiSun } from 'react-icons/fi';
+import { FaMoon } from 'react-icons/fa';
 
 const Login = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Button onClick={toggleColorMode}>
-      Toggle {colorMode === "light" ? "Dark" : "Light"}
-    </Button>
+    <IconButton
+      size={'lg'}
+      variant={'ghost'}
+      aria-label={'Toggle'}
+      onClick={toggleColorMode}
+      icon={colorMode === 'dark' ? <FiSun /> : <FaMoon />}
+    />
   );
 };
 
