@@ -3,7 +3,7 @@ import { useColorMode } from '@chakra-ui/react';
 
 export const Logo = (props: IconProps) => {
   const { colorMode } = useColorMode();
-  console.log(colorMode);
+
   return (
     <Icon viewBox="0 0 512 512" {...props}>
       <path

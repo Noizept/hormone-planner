@@ -6,7 +6,12 @@ const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <Button leftIcon={<FiLogIn />} onClick={() => loginWithRedirect()}>
+    <Button
+      leftIcon={<FiLogIn />}
+      onClick={() => loginWithRedirect()}
+      // variant={'outline'}
+      colorScheme={'telegram'}
+    >
       Log In
     </Button>
   );

@@ -14,6 +14,7 @@ i18n
   .use(initReactI18next)
   .use(Backend)
   .init({
+    load: 'languageOnly',
     debug: true,
     fallbackLng: 'en',
     detection: langDetectorOptions,
