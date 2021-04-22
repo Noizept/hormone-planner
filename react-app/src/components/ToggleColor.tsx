@@ -3,7 +3,7 @@ import { IconButton, useColorMode } from '@chakra-ui/react';
 import { FiSun } from 'react-icons/fi';
 import { FaMoon } from 'react-icons/fa';
 
-const Login = () => {
+const ToggleColor = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <IconButton
@@ -16,4 +16,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ToggleColor;

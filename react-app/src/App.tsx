@@ -1,25 +1,28 @@
 import React from 'react';
-import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
-import { useTranslation } from 'react-i18next';
-import { ChakraProvider, Spinner } from '@chakra-ui/react';
-import Landing from './pages/Landing';
-import theme from './theme';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Spinner, Flex, HStack } from '@chakra-ui/react';
+import { LanguageSelector, ToggleColor } from './components';
+import Logout from './components/Logout';
+import { useIsMobile } from './hooks';
+
+const LazyLanding = React.lazy(() => import('./pages/Landing'));
 
 function App() {
-  const { t } = useTranslation();
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
+  const isMobile = useIsMobile();
+
   return (
-    <Auth0Provider
-      domain="dev-40zn7o28.eu.auth0.com"
-      clientId="JfS1fybspwR76xNoOhu4tIEDWdNxEgZ0"
-      redirectUri={window.location.origin}
-      useRefreshTokens={true}
-      cacheLocation="localstorage"
-    >
-      <ChakraProvider theme={theme}>
-        {!isAuthenticated && <Landing />}
-      </ChakraProvider>
-    </Auth0Provider>
+    <Flex direction={'column'} height={'100%'} borderRadius="xl">
+      <Flex width={'100%'} justifyContent={isMobile ? 'center' : 'flex-end'}>
+        <HStack spacing="24px" margin={'15px'}>
+          <LanguageSelector />
+          <ToggleColor />
+        </HStack>
+      </Flex>
+      {isLoading && <Spinner />}
+      {!isAuthenticated && !isLoading && <LazyLanding />}
+      {isAuthenticated && !isLoading && <Logout />}
+    </Flex>
   );
 }
 

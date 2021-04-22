@@ -1,5 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  darkModeBg: '#43425D',
-  lightModeBg: '#E4E4E4',
+  darkModeBg: '#485461',
+  darkModeBackgroundImage: 'linear-gradient(315deg, #485461 0%, #28313b 74%)',
+  lightModeBg: '#f9fcff;',
+  lightModeBackgroundImage: 'linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%)',
 };
