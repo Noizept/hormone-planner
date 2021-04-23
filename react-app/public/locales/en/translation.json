@@ -2,5 +2,16 @@
   "landing":{
     "title":"Hormones Planner",
     "login-button":"Login"
+  },
+  "navigation":{
+    "dashboard":"Dashboard",
+    "home":"Home",
+    "anabolics":"Anabolics",
+    "sarms":"SARMS",
+    "peptides":"Peptides",
+    "hormones":"Hormones",
+    "logout":"Sign Out"
+
+
   }
 }

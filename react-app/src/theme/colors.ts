@@ -2,6 +2,6 @@
 export default {
   darkModeBg: '#485461',
   darkModeBackgroundImage: 'linear-gradient(315deg, #485461 0%, #28313b 74%)',
-  lightModeBg: '#f9fcff;',
-  lightModeBackgroundImage: 'linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%)',
+  lightModeBg: '#FFFFFF;',
+  lightModeBackgroundImage: '#F2F5FA',
 };

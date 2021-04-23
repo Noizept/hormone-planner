@@ -7,11 +7,10 @@ export const global = (props: any) => ({
   },
   body: {
     height: '100%',
-    backgroundImage: mode(
+    bg: mode(
       Colors.lightModeBackgroundImage,
       Colors.darkModeBackgroundImage
     )(props),
-    bg: mode(Colors.lightModeBg, Colors.darkModeBg)(props),
   },
   '#root': {
     height: '100%',
