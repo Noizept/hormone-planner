@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum HormoneType {
+  ANABOLIC
+  SARMS
+  PEPTIDES
+  HORMONE
+}
+model Hormones {
+  id            String         @id @default(uuid())
+  kind HormoneType
+  pictureUrl    String?
+  halfLife      Int
+  AnabolicTrans HormoneTrans[]
+}
+
+model HormoneTrans {
+  id          String    @id @default(uuid())
+  locale      String
+  Hormones    Hormones @relation(fields: [hormonesId], references: [id])
+  hormonesId  String
+  title       String
+  description String
+  doses       String
+}
