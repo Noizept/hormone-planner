@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("POSTGRES")
 }
 
 generator client {
@@ -16,20 +16,29 @@ enum HormoneType {
   PEPTIDES
   HORMONE
 }
+
+enum Form {
+  INJECTABLE
+  ORAL
+}
+
 model Hormones {
   id            String         @id @default(uuid())
-  kind HormoneType
+  kind          HormoneType
   pictureUrl    String?
   halfLife      Int
-  AnabolicTrans HormoneTrans[]
+  form          Form
+  HormoneTrans HormoneTrans[]
 }
 
 model HormoneTrans {
-  id          String    @id @default(uuid())
-  locale      String
-  Hormones    Hormones @relation(fields: [hormonesId], references: [id])
-  hormonesId  String
-  title       String
-  description String
-  doses       String
+  id              String   @id @default(uuid())
+  locale          String
+  Hormones        Hormones @relation(fields: [hormonesId], references: [id])
+  hormonesId      String
+  title           String
+  description     String
+  doses           String?
+  sideEffect      String?
+  counterMedicine String?
 }

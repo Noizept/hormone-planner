@@ -1,38 +1,31 @@
 version: "3"
 services:
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "7300:80"
-    volumes:
-      - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
-
   react-app:
     build:
       context: "./react-app/"
       dockerfile: "Dockerfile"
     depends_on:
-      - users-service
+      - hormone-service
     ports:
       - "3000:3000"
     volumes:
       - ./react-app:/opt/app
 
-  users-service:
+  hormone-service:
     build:
-      context: "./user-service/"
+      context: "./hormone-service/"
       dockerfile: "Dockerfile"
     depends_on:
-      - user-service-db
+      - hormone-service-db
     ports:
       - "7101:7101"
     volumes:
-      - ./user-service:/opt/app
+      - ./hormone-service:/opt/app
 
-  user-service-db:
+  hormone-service-db:
+    image: postgres:alpine
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=db
-    image: mysql:5.7.20
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=user
     ports:
-      - "7201:3306"
+      - "5432:5432"
