@@ -12,7 +12,7 @@ const startServer = () => {
     })
   );
 
-  app.use(verifyJwt);
+  // app.use(verifyJwt);
   app.use("/hormones", hormones);
 
   app.use((error: any, req: any, res: any, next: any) => {

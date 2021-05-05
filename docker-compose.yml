@@ -1,11 +1,23 @@
 version: "3"
 services:
+  api-gateway:
+    build:
+      context: "./api-gateway/"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - hormone-service
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./api-gateway:/opt/app
+
   react-app:
     build:
       context: "./react-app/"
       dockerfile: "Dockerfile"
     depends_on:
       - hormone-service
+      - api-gateway
     ports:
       - "3000:3000"
     volumes:
